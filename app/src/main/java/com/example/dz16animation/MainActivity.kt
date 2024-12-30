@@ -3,6 +3,10 @@ package com.example.dz16animation
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,11 +30,19 @@ class MainActivity : AppCompatActivity() {
         toolbarMain = findViewById(R.id.toolbarMain)
         setSupportActionBar(toolbarMain)
         title = "  Анимация"
-        toolbarMain.subtitle = "Версия 1. "
-        toolbarMain.setLogo(R.drawable.baseline_engineering_24)
+        toolbarMain.subtitle = " Версия 1. "
+        toolbarMain.setLogo(R.drawable.outline_planet_24)
 
 
-    }
+            findViewById<ImageView>(R.id.iv_logo)
+                .startAnimation(AnimationUtils.loadAnimation(this, R.anim.logo))
+            findViewById<TextView>(R.id.tv_far_away)
+                .startAnimation(AnimationUtils.loadAnimation(this, R.anim.far_away))
+            findViewById<LinearLayout>(R.id.ll_text)
+                .startAnimation(AnimationUtils.loadAnimation(this,R.anim.main))
+        }
+
+
     //Инициализация Меню
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
